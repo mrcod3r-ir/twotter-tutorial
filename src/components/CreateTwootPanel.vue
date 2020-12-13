@@ -16,12 +16,6 @@
         <button>
             Twoot!
         </button>
-        <br>
-        newTwootContent : {{newTwootContent}}
-        <br>
-        selectedTwootType : {{selectedTwootType }}
-        <br>
-        user {{user }}
     </form>
 </template>
 
