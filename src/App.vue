@@ -14,18 +14,32 @@
 
 <script>
 
+// import reactive from 'vue'
 import UserProfile from './components/UserProfile';
 
 export default {
   name: 'App',
   components:{UserProfile},
-  data() {
+  data(){
     return {
-      user:{
-        username:'_MitchellRomney'
+      user: {
+        username:'_MitchellRomney',
       }
     }
   },
+  // setup() {
+  //   const state = reactive({
+  //     user: {
+  //       username:'_MitchellRomney',
+  //     }
+  //   })
+
+  //   return {
+  //     state
+  //   }
+ 
+  // }
+
 }
 </script>
 
