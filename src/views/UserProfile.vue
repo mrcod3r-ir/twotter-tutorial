@@ -5,6 +5,7 @@
                 <h1 class="user-profile__username">@{{state.user.username}}</h1>
                 <div class="user-profile__admin-badge" v-if="state.user.isAdmin">
                     Admin
+                    
                 </div>
                 <div class="user-profile__follower-count">
                     <strong>Followers : </strong> {{state.followers}}
@@ -28,35 +29,30 @@
 </template>
 
 <script>
-import TwootItem from './TwootItem';
-import CreateTwootPanel from './CreateTwootPanel'
-import {reactive} from 'vue'
-
+import TwootItem from '../components/TwootItem';
+import CreateTwootPanel from '../components/CreateTwootPanel'
+import {reactive,computed} from 'vue'
+import {useRoute} from 'vue-router'
+import { users } from "../assets/users"
 export default {
     name:"UserProfile",
     components:{TwootItem,CreateTwootPanel},
     setup() {
+
+        const route = useRoute();
+        // in index.js was defined :userId  !
+        const userId = computed(()=> route.params.userId);  
+
         const state = reactive({
             followers:0,
-            user:{
-                id:1,
-                username:'_MitchelRomney',
-                firstName:'Mitchel',
-                lastName:'Romney',
-                email:'mitchellromney@theearthissquare.com',
-                isAdmin:true,
-                twoots:[
-                    {id:1,content:'Twooter is Awesome !'},
-                    {id:2,content:'Dont forget subscribe to the Twooter'}
-                ]
-            }
+            user: users[userId.value - 1] || users[0]
         })
 
         function addTwoot(twoot) {
             state.user.twoots.unshift({id: state.user.twoots.length+1,content: twoot})
         }
         return {
-            state,addTwoot
+            state,addTwoot,userId
         }
     },
 
