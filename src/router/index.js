@@ -22,6 +22,7 @@ const routes = [
       requiresAdmin : true
     }
   }
+  
 ]
 
 const router = createRouter({
