@@ -37,9 +37,9 @@ router.beforeEach(async(to,from,next)=>{
 
   // run below before each routing ... 
 
-  const user = store.state.user;
+  const user = store.state.User.user;
   if (!user) {
-    await store.dispatch('setUser',users[0]);
+    await store.dispatch('User/setUser',users[0]);
   }
 
   const isAdmin = false;
