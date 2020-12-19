@@ -12,7 +12,6 @@
         {{user.username}}
       </div>
     </nav>
-    {{user}}
     <router-view />
   </div>
 </template>
