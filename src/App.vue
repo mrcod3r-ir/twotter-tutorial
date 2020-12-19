@@ -18,29 +18,21 @@
 
 <script>
 
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 
 export default {
   name: 'App',
-  components:{},
-  data(){
-    return {
-      user: {
-        username:'_MitchellRomney',
-      }
-    }
-  },
-  // setup() {
-  //   const state = reactive({
-  //     user: {
-  //       username:'_MitchellRomney',
-  //     }
-  //   })
+  setup() {
 
-  //   return {
-  //     state
-  //   }
- 
-  // }
+    const store = useStore();
+    const user = computed(() => store.state.user );
+    
+    return {
+      user
+    }
+
+  }
 
 }
 </script>

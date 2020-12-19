@@ -19,7 +19,10 @@ export const users = [
             "lastName": "Cole",
             "email":null,
             "isAdmin": null,
-            "twoots" : []
+            "twoots" : [
+                {"id":1,"content":"some Twooter is Amazing!"},
+                {"id":2,"content":"some Dont forget to subscribe"}
+            ]
             
         },
         {
